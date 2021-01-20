@@ -1,0 +1,7 @@
+.App {
+  text-align: center;
+}
+.wrapOld{
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,36 @@
+.itemWrap{
+    border: 1px solid ;
+    border-radius: 4px;
+    width: 340px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+.itemWrap img{
+    width: 110px;
+    border-radius: 4px;
+    background: aliceblue;
+    margin-right: 1em;
+}
+.content h3{
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #3c464c!important;
+}
+.prise{
+    font-weight: bold;
+    font-size: 15px;
+    color: #1ea7fd;
+}
+.desc{
+
+}
+.ollWrap{
+    display: flex;
+    flex-wrap: wrap;
+    width: 76%;
+    justify-content: space-evenly;
+}
