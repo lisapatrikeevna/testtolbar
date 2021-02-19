@@ -7,9 +7,7 @@ import data from '../../redux/products.json'
 import ItemProduct from './itemProduct'
 
 
-
 const ProductList = () => {
-
     // useEffect(() => {
     //     const data1: any  = data
     //     debugger

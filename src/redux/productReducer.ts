@@ -1,3 +1,5 @@
+import {sortArrProd} from "./hhhh";
+
 export type productsType = {
     id: number
     name: string
@@ -39,14 +41,16 @@ export const ProductReducer = (state = initialState, action: ActionType) => {
                 ...state, products: action.products
             }
         case 'SET_NEW_PRODUCT':
-            debugger
             return {
                 ...state, products: [...state.products, action.newProduct]
             }
-        case 'SORT_TYPE_PRODUCT':
+        case 'SORT_TYPE_PRODUCT': {
+            let ppp=sortArrProd(state.products,action.sortType)
             return {
-                ...state, sort: action.sortType
+                ...state, sort: action.sortType,
+                  // products:ppp
             }
+        }
         case 'SORT_TYPE_MIN':
             return {
                 ...state, filterMin: action.num
@@ -56,8 +60,7 @@ export const ProductReducer = (state = initialState, action: ActionType) => {
                 ...state, filterMax: action.num
             }
         case "SET_CURRENCY":
-            let res = {
-                ...state,
+            return {   ...state,
                 currency: action.payload,
                 products: state.products.map((pr) => {
                     if (action.payload === 'UAN') {
@@ -67,10 +70,6 @@ export const ProductReducer = (state = initialState, action: ActionType) => {
                     }
                 })
             }
-            debugger
-            return res
-
-
         default  :
             return state;
     }

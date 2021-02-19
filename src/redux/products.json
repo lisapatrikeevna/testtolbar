@@ -4,7 +4,7 @@
       "id": 0,
       "name": "Samsung Galaxy S20",
       "price": 19999,
-      "image": "./../../img/products/1.jpg",
+      "image": "1.jpg",
       "description": "Measured diagonally, Galaxy S20 FE 5G’s screen size is 6.5” in the full rectangle and 6.4” with accounting for the rounded corners; Galaxy S20 5G's screen size is 6.2\" in the full rectangle and 6.1\" with accounting for the rounded corners; Galaxy S20+ 5G's screen size is 6.7\" in the full rectangle and 6.5\" with accounting for the rounded corners; and Galaxy S20 Ultra 5G's screen size is 6.9\" in the full rectangle and 6.7\" with accounting for the rounded corners; actual viewable area is less due to the rounded corners and camera hole."
     },
     {
