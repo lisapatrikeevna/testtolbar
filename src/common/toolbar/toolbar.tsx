@@ -4,6 +4,7 @@ import {Sort} from "./sort/Sort";
 import cl from './Toolbar.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {RootStateType} from "../../redux/store";
+import Currency from "./currency/currency";
 
 const Toolbar = () => {
     const dispatch = useDispatch()
@@ -12,7 +13,7 @@ const Toolbar = () => {
     const onChangeMin=(e:ChangeEvent<HTMLInputElement>)=>{
         dispatch(setMinTypeAC(e.currentTarget.valueAsNumber))
     }
-
+    let currency =useSelector<RootStateType,string>(state => state.products.currency)
     const onChangeMax=(e:ChangeEvent<HTMLInputElement>)=>{
         let value = e.currentTarget.valueAsNumber;
         if (!isFinite(value)) return;
@@ -25,6 +26,7 @@ const Toolbar = () => {
                 <label > max <input type={'number'} value={max} min={min} onChange={onChangeMax}/></label>
             </div>
             <div className={cl.sort}><Sort items={[{title: "ABC", value: "ABC"}, {title: "max", value: "max"}, {title: "min", value: "min"}]}/></div>
+            <Currency currency={currency}/>
         </div>
     );
 };

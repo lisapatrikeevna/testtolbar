@@ -1,24 +1,44 @@
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {RootStateType} from '../../redux/store';
-import {productsType, setProductAC} from "../../redux/productReducer";
+import React, {useEffect} from 'react'
+import {useDispatch, useSelector} from "react-redux"
+import {RootStateType} from '../../redux/store'
+import {productsType, setProductAC} from "../../redux/productReducer"
 import cl from './ProductList.module.css'
 import data from '../../redux/products.json'
-import img1 from '../../products/1.jpg'
+import ItemProduct from './itemProduct'
 
 
 
 const ProductList = () => {
-    useEffect(() => {
-        const data1: any  = data
-        dispatch(setProductAC(data1.products))
-    }, [])
+
+    // useEffect(() => {
+    //     const data1: any  = data
+    //     debugger
+    //
+    // }, [])
     let filterMin =useSelector<RootStateType,number>(state => state.products.filterMin)
     let filterMax =useSelector<RootStateType,number>(state => state.products.filterMax)
+    let currency =useSelector<RootStateType,string>(state => state.products.currency)
+
     const dispatch = useDispatch()
     let products = useSelector<RootStateType, Array<productsType>>(state => state.products.products)
     let ollProducts = products
+    console.log(ollProducts)
     const abcType = useSelector<RootStateType, string>(state => state.products.sort)
+
+    useEffect(() => {
+        const data1: any  = data
+        if(products.length <data1.products.length){
+            dispatch(setProductAC(data1.products))
+        }else {
+            debugger
+            dispatch(setProductAC(products))
+        }
+    }, [dispatch,ollProducts])
+
+
+
+
+
     if (abcType === 'ABC') {
         ollProducts = [...ollProducts].sort((a, b) => {
             if (a.name > b.name) {
@@ -60,20 +80,12 @@ const ProductList = () => {
     if(filterMax){
         ollProducts = ollProducts.filter(p=> Number(p.price) >= Number(filterMax))
     }
-    const ItemProduct = ollProducts.map(p => {
-        return  (<div className={cl.itemWrap} key={p.id}>
-                <img src={p.image} alt={p.name}/>
-                <div className={cl.content}>
-                    <h3>{p.name}</h3>
-                    <div className={cl.prise}>{p.price}<span> UAN</span></div>
-                    <div className={cl.desc}>{p.description}</div>
-                </div>
-            </div>)
-        }
-    )
+//    const product = ollProducts.map(p => <ItemProduct key={p.id} id={p.id} image={p.image} name={p.name} description={p.description} price={p.price} currency={currency}/>)
+    const product = products.map(p => <ItemProduct key={p.id} id={p.id} image={p.image} name={p.name} description={p.description} price={p.price} currency={currency}/>)
+    console.log(product)
     return (
         <div className={cl.ollWrap}>
-            {ItemProduct}
+            {product}
         </div>
     );
 };
