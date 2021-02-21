@@ -21,12 +21,15 @@ const Toolbar = () => {
     }
     return (
         <div className={cl.nav}>
+            <div className={cl.currency}>
+                <Currency currency={currency}/>
+            </div>
             <div className="price">
                 <label > min <input type={'number'} value={min} onChange={onChangeMin}/></label><br/>
                 <label > max <input type={'number'} value={max} min={min} onChange={onChangeMax}/></label>
             </div>
             <div className={cl.sort}><Sort items={[{title: "ABC", value: "ABC"}, {title: "max", value: "max"}, {title: "min", value: "min"}]}/></div>
-            <Currency currency={currency}/>
+
         </div>
     );
 };

@@ -42,7 +42,7 @@ export const ProductReducer = (state = initialState, action: ActionType) => {
             }
         case 'SET_NEW_PRODUCT':
             return {
-                ...state, products: [...state.products, action.newProduct]
+                ...state, products: [ action.newProduct,...state.products]
             }
         case 'SORT_TYPE_PRODUCT': {
             let ppp=sortArrProd(state.products,action.sortType)

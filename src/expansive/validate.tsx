@@ -12,16 +12,13 @@ export const validate = (value: any, min: number, max: number, name: string) => 
         return 'Required'
     }
 
-
     if (minLength(min, value)) {
         return `Must be ${min} characters or more`
     }
-
     if (maxLength(max, value)) {
         return `Must be ${max} characters or less`
     }
     if (name === 'price') {
-
         if (!isFinite(value)) {
             return 'ok, try to enter the number'
         }
