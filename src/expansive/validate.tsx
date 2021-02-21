@@ -7,7 +7,7 @@ export const minLength = (min: number, value: string) => {
 
 
 export const validate = (value: any, min: number, max: number, name: string) => {
-    debugger
+    // debugger
     if (!value) {
         return 'Required'
     }

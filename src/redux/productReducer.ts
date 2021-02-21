@@ -1,5 +1,3 @@
-import {sortArrProd} from "./hhhh";
-
 export type productsType = {
     id: number
     name: string
@@ -45,10 +43,8 @@ export const ProductReducer = (state = initialState, action: ActionType) => {
                 ...state, products: [ action.newProduct,...state.products]
             }
         case 'SORT_TYPE_PRODUCT': {
-            let ppp=sortArrProd(state.products,action.sortType)
             return {
-                ...state, sort: action.sortType,
-                  // products:ppp
+                ...state, sort: action.sortType
             }
         }
         case 'SORT_TYPE_MIN':
