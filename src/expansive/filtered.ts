@@ -1,4 +1,4 @@
-import {productsType} from "./productReducer";
+import {productsType} from "../redux/productReducer";
 
 export  const sortArrProd=(products:Array<productsType>,sortType:string): Array<productsType>=>{
     if (sortType==='ABC') {

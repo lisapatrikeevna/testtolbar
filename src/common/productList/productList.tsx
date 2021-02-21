@@ -5,15 +5,11 @@ import {productsType, setProductAC} from "../../redux/productReducer"
 import cl from './ProductList.module.css'
 import data from '../../redux/products.json'
 import ItemProduct from './itemProduct'
-import {sortArrProd} from "../../redux/filtered";
+import {sortArrProd} from "../../expansive/filtered";
 
 
 const ProductList = () => {
-    // useEffect(() => {
-    //     const data1: any  = data
-    //     debugger
-    //
-    // }, [])
+
     let filterMin =useSelector<RootStateType,number>(state => state.products.filterMin)
     let filterMax =useSelector<RootStateType,number>(state => state.products.filterMax)
     let currency =useSelector<RootStateType,string>(state => state.products.currency)

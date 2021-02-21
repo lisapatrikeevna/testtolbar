@@ -6,14 +6,10 @@ type propsType={
 }
 
 const ItemProduct = (props:productsType & propsType) => {
-   //  //@ts-ignore
-   // const requestImageFile = require.context(`../../img/products`, true)
-
 
     return (
         <div className={cl.itemWrap} key={props.id}>
-            {/*<img src={requestImageFile(`./${props.image}`)} alt={props.name}/>*/}
-            <img src={`/products/${props.image}`} alt={props.name}/>
+            <img src={props.image} alt={props.name}/>
             <div className={cl.content}>
                 <h3>{props.name}</h3>
                 <div className={cl.prise}>{props.price}<span> {props.currency}</span></div>

@@ -9,11 +9,12 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import TextField from '@material-ui/core/TextField/TextField'
 import React, {ChangeEvent, useEffect, useState} from 'react'
 import {useDispatch} from "react-redux"
-import {setNewProductAC} from "../../redux/productReducer"
+import {setNewProductAC, setProductAC} from "../../redux/productReducer"
 import cl from './newProduct.module.css'
 import {PhotoCamera} from "@material-ui/icons";
 import {validate} from '../../expansive/validate'
 import {Input} from "../../expansive/Input";
+import data from "../../redux/products.json";
 
 const NewProduct = () => {
     const dispatch = useDispatch()
@@ -30,6 +31,7 @@ const NewProduct = () => {
     }
     const onDescription = (description: string) => {
         setDescription(description)
+
     }
     const onSetImage = (e: any) => {
         let image = URL.createObjectURL(e.target.files[0])
@@ -40,19 +42,20 @@ const NewProduct = () => {
         setName(name)
     }
 
+    useEffect(() => {
+
+        if (!name || !image || !description || !price) {
+            setError('all fields Required')
+            setDisable(true)
+        } else {
+            setDisable(false)
+        }
+    },[name, image, description, price])
 
     const setNewProduct = () => {
-        debugger
-        if (name && image && description && Number(price)) {
-            debugger
-            setError('all fields Required')
-            setDisable(false)
-        } else {
-            setDisable(true)
-        }
+
         let id = new Date().getTime()
-        let piceAsNUMBER = Number(price)
-        let payload = {id, name, price: piceAsNUMBER, image, description}
+        let payload = {id, name, price: Number(price), image, description}
         dispatch(setNewProductAC(payload))
         setName('')
         setPrice('')
@@ -77,12 +80,9 @@ const NewProduct = () => {
     return (
         <form className={cl.itemWrap}>
             <div className={cl.content}>
-                {/*<TextField  helperText={error} placeholder={'name'} className={classes.margin} label="name"*/}
-                {/*        error={!!error} variant="outlined"*/}
-                {/*/>*/}
                 <Input className={classes.margin} label="name" value={name} addInputValue={onChangeName}
                        placeholder={'name'} title={'enter value'} helperText={error} validate={validate}/>
-                <Input className={classes.margin} label="price UAN" value={price} addInputValue={onChangePrice}
+                <Input className={classes.margin} label="price" value={price} addInputValue={onChangePrice}
                        placeholder={price} title={'enter value'} helperText={error} validate={validate}/>
                 <div className={classes.root}>
                     <input accept="image/*" id="icon-button-file" type="file" className={classes.input}

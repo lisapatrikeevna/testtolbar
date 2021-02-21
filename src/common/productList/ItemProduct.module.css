@@ -1,20 +1,28 @@
 .itemWrap{
     border: 1px solid;
     border-radius: 4px;
-    width: 90%;
+    width: 300px;
     padding: 15px;
     margin: 30px auto;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    flex-direction: column;
 }
 .itemWrap img{
-    width: 110px;
+    width: 200px;
     border-radius: 4px;
     background: aliceblue;
-    margin-right: 1em;
+    margin: 0 auto;
 }
 .content{
     display: flex;
     flex-direction: column;
-    width: 45%;
+}
+.content h3{
+    text-align: center;
+}
+.prise{
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 10px;
 }
