@@ -29,15 +29,15 @@ export class DoubleRangeSlider extends React.Component<propsType> {
     state:stateType = {
         sliderWidth: 0,
         offsetSliderWidht: 0,
-        // min: 0,
-        min:this.props.min,
-        // max: 200,
+        // min:this.props.min,
+        min:100,
+       // max: this.props.max,
         max: this.props.max,
-        minValueBetween: 10,
-        currentMin: 55,
-        inputMin: 55,
-        currentMax: 100,
-        inputMax: 100
+        minValueBetween: 200,
+        currentMin: this.props.min,
+        inputMin: this.props.min,
+        currentMax: 1000,
+        inputMax: 1000
     };
     componentDidMount() {
         const { currentMin, currentMax, max } = this.state;

@@ -7,7 +7,7 @@ import NewProduct from "./common/productList/newProduct"
 const ChangeProductsPage = () => {
     return (
         <div>
-            <NewProduct/>
+            {/*<NewProduct/>*/}
             <div className={cl.wrapOld}>
                 <Toolbar/>
                 <ProductList/>

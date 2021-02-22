@@ -1,11 +1,12 @@
 .itemWrap{
     border: 1px solid;
     border-radius: 4px;
-    width: 90%;
+    /*width: 90%;*/
     padding: 15px;
-    margin: 30px auto;
+    /*margin: 30px auto;*/
     display: flex;
     justify-content: space-evenly;
+
 }
 .itemWrap img{
     width: 110px;
@@ -16,5 +17,5 @@
 .content{
     display: flex;
     flex-direction: column;
-    width: 45%;
+    width: 90%;
 }

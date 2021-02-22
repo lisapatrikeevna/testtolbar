@@ -1,20 +1,13 @@
 import {IconButton} from '@material-ui/core'
 import Button from '@material-ui/core/Button/Button'
-import {green} from '@material-ui/core/colors'
-import InputBase from '@material-ui/core/InputBase/InputBase'
-import {fade} from '@material-ui/core/styles/colorManipulator'
-import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import withStyles from '@material-ui/core/styles/withStyles'
-import TextField from '@material-ui/core/TextField/TextField'
-import React, {ChangeEvent, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useDispatch} from "react-redux"
-import {setNewProductAC, setProductAC} from "../../redux/productReducer"
+import {setNewProductAC} from "../../redux/productReducer"
 import cl from './newProduct.module.css'
 import {PhotoCamera} from "@material-ui/icons";
 import {validate} from '../../expansive/validate'
 import {Input} from "../../expansive/Input";
-import data from "../../redux/products.json";
 
 const NewProduct = () => {
     const dispatch = useDispatch()
@@ -94,9 +87,7 @@ const NewProduct = () => {
                         </IconButton>
                     </label>
                 </div>
-            </div>
-            <div className={cl.content}>
-                <Input id="outlined-uncontrolled" label="description" multiline rows={4}
+                <Input id="outlined-textarea" label="description" multiline rows={8}
                        placeholder={'description'} validate={validate}
                        variant="outlined" addInputValue={onDescription} value={description} title={'enter desc'}
                        helperText={error} required/>

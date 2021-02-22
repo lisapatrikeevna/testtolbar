@@ -15,7 +15,7 @@ type productInitialStateType = {
 let initialState: productInitialStateType = {
     products: [],
     sort: 'ABC',
-    filterMin: 0,
+    filterMin: 300,
     filterMax: 11000,
     currency: "UAN"
 }
